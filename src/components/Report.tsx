@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./Header";
 import styles from "../styles/GlobalStyles";
 import Sidebar from "./Sidebar";
-import ActiveVisitor from "./ActiveVisitor";
+import PreviousVisitor from "./PreviousVisitor";
 
 const Home: React.FC = () => {
   return (
@@ -10,7 +10,7 @@ const Home: React.FC = () => {
       <Header />
       <Sidebar />
       <div style={styles.content}>
-        <ActiveVisitor />
+        <PreviousVisitor />
       </div>
     </>
   );

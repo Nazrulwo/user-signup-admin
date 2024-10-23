@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import logo from '../assets/softcode_logo.png';
+import logo from '../assets/softcode_logo_black.png';
 import styles from "../styles/GlobalStyles";
 
 const Login: React.FC = () => {

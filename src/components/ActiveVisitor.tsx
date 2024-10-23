@@ -12,7 +12,7 @@ interface Visitor {
   visitStartTime: string;
 }
 
-const VisitorList: React.FC = () => {
+const ActiveVisitor: React.FC = () => {
   const [activeVisitors, setActiveVisitors] = useState<Visitor[]>([]);
   const [previousVisitors, setPreviousVisitors] = useState<Visitor[]>([]);
 
@@ -57,11 +57,6 @@ const VisitorList: React.FC = () => {
 
   return (
     <div style={styles.visitorContainer}>
-      <div style={styles.topTitle}>
-        <h3>Last Leaver: Nazrul</h3>
-        <h3>Active Visitors: {activeVisitors.length}</h3>
-      </div>
-
       <div style={styles.section}>
         <h2>Active Visitor List</h2>
         {activeVisitors.length > 0 ? (
@@ -91,38 +86,8 @@ const VisitorList: React.FC = () => {
           <p>No active visitors are available.</p>
         )}
       </div>
-
-      <div style={styles.section}>
-        <h2>Previous Visitor List</h2>
-        {previousVisitors.length > 0 ? (
-          <table style={styles.table}>
-            <thead>
-              <tr>
-                <th style={styles.th}>Name</th>
-                <th style={styles.th}>Organization</th>
-                <th style={styles.th}>Email</th>
-                <th style={styles.th}>Phone</th>
-                <th style={styles.th}>Host</th>
-              </tr>
-            </thead>
-            <tbody>
-              {previousVisitors.map((visitor) => (
-                <tr key={visitor.id}>
-                  <td style={styles.td}>{visitor.visitorName}</td>
-                  <td style={styles.td}>{visitor.visitorOrganizationName}</td>
-                  <td style={styles.td}>{visitor.visitorEmail}</td>
-                  <td style={styles.td}>{visitor.visitorPhoneNumber}</td>
-                  <td style={styles.td}>{visitor.visitorHostEmail}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        ) : (
-          <p>Loading previous visitors...</p>
-        )}
-      </div>
     </div>
   );
 };
 
-export default VisitorList;
+export default ActiveVisitor;

@@ -7,33 +7,36 @@ interface Styles {
 const styles: Styles = {
   header: {
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: "flex-end",
     alignItems: "center",
-    padding: "20px",
+    padding: "0 20px",
+    height: "72px", 
     backgroundColor: "#ccc",
     color: "black",
   },
   logo: {
     width: "200px",
+    paddingTop: "3px",
   },
   right: {
-    justifyContent: "flex-end",
+    display: "flex",
+    alignItems: "center",
+    gap: "15px", 
   },
   userTitle: {
-    marginRight: "10px",
+    margin: 0,
     fontSize: "15px",
   },
   logout: {
-    padding: "10px 20px",
+    padding: "10px 20px", 
     backgroundColor: "#000",
     color: "white",
     border: "none",
     cursor: "pointer",
-    display: "block",
-    justifySelf: "end",
+    borderRadius: "4px", 
   },
   logoutHover: {
-    backgroundColor: "#333"
+    backgroundColor: "#333",
   },
 
   container: {
@@ -43,9 +46,10 @@ const styles: Styles = {
     justifyContent: "top",
     height: "100vh",
     backgroundColor: "#f4f4f4",
-    padding: "0 20px 0px",
     borderRadius: "4px",
     boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+    marginLeft: "285px", 
+    padding: "20px",
   },
   title: {
     fontSize: "24px",
@@ -138,6 +142,7 @@ const styles: Styles = {
   topTitle: {
     backgroundColor: "#ccc",
     padding: "0 20px",
+    marginBottom: "20px",
     borderRadius: "4px",
     boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
   },
@@ -149,7 +154,6 @@ const styles: Styles = {
     display: "flex",
     flexDirection: "column",
     gap: "10px",
-    marginTop: "20px",
   },
   list: {
     width: "350px",
@@ -172,7 +176,7 @@ const styles: Styles = {
   },
   table: {
     width: '100%',
-    borderCollapse: 'collapse', // Ensure borders are collapsed
+    borderCollapse: 'collapse', 
     marginBottom: '20px',
   },
   th: {
@@ -183,9 +187,9 @@ const styles: Styles = {
     fontWeight: 'bold',
   },
   td: {
-    border: '1px solid #ccc', // Border around cells
+    border: '1px solid #ccc',
     padding: '10px',
-    textAlign: 'left', // Align text to the left
+    textAlign: 'left',
   },
   logoutButton: {
     padding: '5px 10px',
@@ -193,7 +197,44 @@ const styles: Styles = {
     color: 'white',
     border: 'none',
     cursor: 'pointer',
-    borderRadius: '4px', // Add rounded corners
+    borderRadius: '4px', 
+  },
+
+
+  sidebar: {
+    position: "fixed",
+    left: 0,
+    top: 0,
+    height: "100%",  
+    width: "250px",  
+    backgroundColor: "#333",  
+    padding: "2px 20px 20px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+  },
+  sidebarLink: {
+    color: "white",
+    padding: "10px 15px",
+    cursor: "pointer",
+    fontSize: "18px",
+    textAlign: "left",
+    backgroundColor: "transparent",
+    borderRadius: "4px",
+  },
+  linkHover: {
+    backgroundColor: "#555",  
+  },
+  menuTitle: {
+    fontSize: "15px",
+    color: "#fff",
+    fontWeight: "bold",
+    paddingTop: "20px",
+    paddingBottom: "5px",
+  },
+  content: {
+    marginLeft: "285px", 
+    padding: "20px",
   },
 };
 

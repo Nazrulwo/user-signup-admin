@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "./Header";
-import ButtonGroup from "./ButtonGroup";
 import styles from "../styles/GlobalStyles";
+import Sidebar from "./Sidebar";
 
 interface ChecklistItem {
   id: number;
-  check_list_desc: string;
+  checkListDesc: string;
 }
 
 const LastLeaver: React.FC = () => {
@@ -53,7 +53,7 @@ const LastLeaver: React.FC = () => {
   return (
     <>
       <Header />
-      <ButtonGroup />
+      <Sidebar />
       <div style={styles.container}>
         <h2>Last Leaver</h2>
         <form style={styles.form} onSubmit={handleLogout}>
@@ -63,10 +63,10 @@ const LastLeaver: React.FC = () => {
                 <label key={item.id}>
                   <input
                     type="checkbox"
-                    value={item.check_list_desc}
+                    value={item.checkListDesc}
                     onChange={handleCheckboxChange}
                   />
-                  {item.check_list_desc}
+                  {item.checkListDesc}
                 </label>
               ))
             ) : (

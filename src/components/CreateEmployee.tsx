@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "./Header";
-import ButtonGroup from "./ButtonGroup";
 import styles from "../styles/GlobalStyles";
+import Sidebar from "./Sidebar";
 
 interface FormData {
   name: string;
@@ -61,7 +61,7 @@ const CreateEmployee: React.FC = () => {
   return (
     <>
       <Header />
-      <ButtonGroup />
+      <Sidebar />
       <div style={styles.container}>
         <h2>Create Employee</h2>
         <form onSubmit={handleSubmit} style={styles.form}>
