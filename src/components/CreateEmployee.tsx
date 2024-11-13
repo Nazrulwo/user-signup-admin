@@ -4,22 +4,28 @@ import styles from "../styles/GlobalStyles";
 import Sidebar from "./Sidebar";
 
 interface FormData {
-  name: string;
-  email: string;
+  employeeName: string;
+  employeeEmail: string;
+  isActive: boolean;
 }
 
 const CreateEmployee: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
+    employeeName: "",
+    employeeEmail: "",
+    isActive: true,
   });
 
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitSuccess, setSubmitSuccess] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    const { name, value, type, checked } = e.target;
+
+    setFormData({
+      ...formData,
+      [name]: type === "checkbox" ? checked : value,
+    });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -28,15 +34,15 @@ const CreateEmployee: React.FC = () => {
     setSubmitSuccess(null);
 
     try {
-      const response = await fetch("http://172.16.0.92:8097/visitor/create", {
+      const response = await fetch("http://localhost:8097/employee/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          employeeName: formData.name,
-          employeeEmail: formData.email,
-          isActive: true,
+          employeeName: formData.employeeName,
+          employeeEmail: formData.employeeEmail,
+          isActive: formData.isActive,
         }),
       });
 
@@ -45,8 +51,9 @@ const CreateEmployee: React.FC = () => {
         console.log("Employee created:", result);
         setSubmitSuccess("Employee created successfully!");
         setFormData({
-          name: "",
-          email: "",
+          employeeName: "",
+          employeeEmail: "",
+          isActive: true,
         });
       } else {
         setSubmitError("Failed to create the employee.");
@@ -65,18 +72,37 @@ const CreateEmployee: React.FC = () => {
       <div style={styles.container}>
         <h2>Create Employee</h2>
         <form onSubmit={handleSubmit} style={styles.form}>
-          {["name", "email"].map((field) => (
-            <input
-              key={field}
-              type="text"
-              name={field}
-              placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
-              value={formData[field as keyof FormData]}
-              onChange={handleChange}
-              style={styles.input}
-              required
-            />
-          ))}
+          <input
+            type="text"
+            name="employeeName"
+            placeholder="Employee Name"
+            value={formData.employeeName}
+            onChange={handleChange}
+            style={styles.input}
+            required
+          />
+
+          <input
+            type="email"
+            name="employeeEmail"
+            placeholder="Employee Email"
+            value={formData.employeeEmail}
+            onChange={handleChange}
+            style={styles.input}
+            required
+          />
+
+          <div>
+            <label>
+              Active:
+              <input
+                type="checkbox"
+                name="isActive"
+                checked={formData.isActive}
+                onChange={handleChange}
+              />
+            </label>
+          </div>
 
           {submitError && <div style={styles.error}>{submitError}</div>}
           {submitSuccess && <div style={styles.success}>{submitSuccess}</div>}
