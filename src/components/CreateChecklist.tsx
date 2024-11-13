@@ -49,7 +49,7 @@ const CreateChecklist: React.FC = () => {
     const formDataToSubmit = new FormData();
     formDataToSubmit.append("checkListDesc", formData.checkListDesc);
     if (formData.checkListImage) {
-      formDataToSubmit.append("checkListImage", formData.checkListImage);
+      formDataToSubmit.append("checkListImage", formData.checkListImage);  
     }
     formDataToSubmit.append("active", String(formData.active));
     formDataToSubmit.append("groupByName", formData.groupByName);
@@ -64,7 +64,6 @@ const CreateChecklist: React.FC = () => {
       if (response.ok) {
         const result = await response.json();
         setSubmitSuccess("Checklist created successfully!");
-
         setFormData({
           checkListDesc: "",
           checkListImage: null,
@@ -73,6 +72,8 @@ const CreateChecklist: React.FC = () => {
           createdBy: 0,
         });
       } else {
+        const errorText = await response.text();
+        console.error("Error:", errorText);
         setSubmitError("Failed to create checklist.");
       }
     } catch (error) {
@@ -104,7 +105,6 @@ const CreateChecklist: React.FC = () => {
             accept="image/*"
             onChange={handleImageChange}
             style={styles.input}
-            required
           />
 
           <div>
@@ -124,16 +124,6 @@ const CreateChecklist: React.FC = () => {
             name="groupByName"
             placeholder="Group By Name"
             value={formData.groupByName}
-            onChange={handleChange}
-            style={styles.input}
-            required
-          />
-
-          <input
-            type="number"
-            name="createdBy"
-            placeholder="Created By (User ID)"
-            value={formData.createdBy}
             onChange={handleChange}
             style={styles.input}
             required
