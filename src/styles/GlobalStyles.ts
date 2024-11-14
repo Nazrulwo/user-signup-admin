@@ -13,6 +13,9 @@ const styles: Styles = {
     height: "72px", 
     backgroundColor: "#ccc",
     color: "black",
+    position: "fixed",
+    left: "0",
+    right: "0",
   },
   logo: {
     width: "200px",
@@ -44,12 +47,10 @@ const styles: Styles = {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "top",
-    height: "100vh",
-    backgroundColor: "#f4f4f4",
     borderRadius: "4px",
-    boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
-    marginLeft: "285px", 
-    padding: "20px",
+    padding: "100px 20px 20px",
+    marginLeft: "250px",
+    maxWidth: "97%",
   },
   title: {
     fontSize: "24px",
@@ -57,8 +58,7 @@ const styles: Styles = {
     color: "#333",
   },
   form: {
-    width: "100%",
-    maxWidth: "400px",
+    minWidth: "400px",
     backgroundColor: "#fff",
     padding: "20px",
     borderRadius: "4px",
@@ -135,9 +135,10 @@ const styles: Styles = {
     marginTop: "10px",
   },
   visitorContainer: {
-    padding: "20px",
+    padding: "100px 20px 20px",
     display: "flex",
     flexDirection: "column",
+    width: "97%",
   },
   topTitle: {
     backgroundColor: "#ccc",
@@ -145,15 +146,17 @@ const styles: Styles = {
     marginBottom: "20px",
     borderRadius: "4px",
     boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
+    display: "flex",
+    flexDirection: "column",
+    width: "100%",
   },
   section: {
     backgroundColor: "#fff",
     padding: "20px",
     borderRadius: "4px",
     boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
-    display: "flex",
-    flexDirection: "column",
     gap: "10px",
+    width: "100%",
   },
   list: {
     width: "350px",
@@ -200,7 +203,6 @@ const styles: Styles = {
     borderRadius: '4px', 
   },
 
-
   sidebar: {
     position: "fixed",
     left: 0,
@@ -233,8 +235,10 @@ const styles: Styles = {
     paddingBottom: "5px",
   },
   content: {
-    marginLeft: "285px", 
-    padding: "20px",
+    display: "flex",
+    flexDirection: "column",
+    minWidth: "400px",
+    margin: "0 20px 0 300px",
   },
 };
 
