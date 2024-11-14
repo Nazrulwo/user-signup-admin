@@ -9,10 +9,11 @@ const Sidebar: React.FC = () => {
   const location = useLocation();
 
   const links = [
-    { name: "Admin Panel", path: "/home" },
     { name: "Report", path: "/report" },
-    { name: "Arrive", path: "/arrive" },
+    { name: "Visitor", path: "/visitor" },
+    { name: "Visitor Logout", path: "/logout" },
     { name: "Create Employee", path: "/employee" },
+    { name: "Employee List", path: "/employee-list" },
     { name: "Create Checklist", path: "/create-checklist" },
     { name: "Last Leaver", path: "/last-leaver" }
   ];

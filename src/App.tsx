@@ -1,12 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./components/Login";
-import Arrive from "./components/Arrive";
-import Home from "./components/Home";
 import CreateEmployee from "./components/CreateEmployee";
 import LastLeaver from "./components/LastLeaver";
 import CreateChecklist from "./components/CreateChecklist";
-import Report from "./components/Report";
+import EmployeeList from "./components/EmployeeList";
+import Dashboard from "./components/Dashboard";
+import Visitor from "./components/Visitor";
+import VisitorLogout from "./components/VisitorLogout";
 
 const App: React.FC = () => {
   return (
@@ -14,9 +15,10 @@ const App: React.FC = () => {
       <div>
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/arrive" element={<Arrive />} />
-          <Route path="/report" element={<Report />} />
+          <Route path="/report" element={<Dashboard />} />
+          <Route path="/employee-list" element={<EmployeeList />} />
+          <Route path="/visitor" element={<Visitor />} />
+          <Route path="/logout" element={<VisitorLogout />} />
           <Route path="/employee" element={<CreateEmployee />} />
           <Route path="/create-checklist" element={<CreateChecklist />} />
           <Route path="/last-leaver" element={<LastLeaver />} />

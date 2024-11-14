@@ -11,7 +11,7 @@ const Login: React.FC = () => {
   const handleLogin = (event: React.FormEvent) => {
     event.preventDefault();
     if (username === "admin" && password === "pass") {
-      navigate("/home");
+      navigate("/report");
     } else {
       alert("Invalid credentials");
     }
